@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+#gameGrid
+{
+    background-color: #bbada0;
+    display: grid;
+    grid-template-columns: repeat(var(--grid_size), var(--cell_size));
+    grid-template-rows: repeat(var(--grid_size), var(--cell_size));
+    gap: var(--cell_gap);
+    padding: var(--cell_gap);
+    border-radius: 1vmin;
+    position: relative;
+    font-size: 7.4vmin;
+    font-weight: 500;
+}
+
+.cell 
+{
+    background-color: #cdc1b4;
+    border-radius: 1vmin;
+}
+
+.tile
+{
+   --x: 1;
+   --y : 0;
+    --tile_color: 43%;
+    position: absolute;
+    width: var(--cell_size);
+    height: var(--cell_size);
+    background-color:hsl(120, 50%, var(--tile_bg)) ;
+    color:hsl(30, 8%, var(--tile_color)) ;
+    border-radius: 1vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: calc(var(--x)*(var(--cell_size) + var(--cell_gap)) + var(--cell_gap));
+    top: calc(var(--y)*(var(--cell_size) + var(--cell_gap)) + var(--cell_gap));
+
+    animation: show 200ms ease-in-out;
+    transition: 100ms ease-in-out;
+}
+
+@keyframes show {
+    0%{
+        opacity: 0.5;
+        transform: scale(0);
+    }
+}
