@@ -45,13 +45,13 @@ export default class Grid {
 }
 
 class Cell {
-  #cellItem;
+  #cellElement;
   #x;
   #y;
   #tile;
   #mergeTile;
   constructor(cell, x, y) {
-    this.#cellItem = cell;
+    this.#cellElement = cell;
     this.#x = x;
     this.#y = y;
   }
@@ -86,7 +86,7 @@ class Cell {
     this.#tile.y = this.#y;
   }
   canAccept(tile) {
-    return this.tile == null || this.tile.val == tile.val;
+    return (this.tile == null || (this.#mergeTile == null && this.tile.value == tile.value));
   }
 
   mergeTiles() {
