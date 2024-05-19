@@ -1,7 +1,14 @@
 import Grid from "./Grid.js";
 import Tile from "./Tile.js";
 
+export const GRID_SIZE = 4;
+export const CELL_SIZE = 15;
+export const CELL_GAP = 2;
+
+
 const gridElement = document.getElementById("gameGrid")
+
+
 const grid = new Grid(gridElement)
 grid.randomEmptyCell().tile = new Tile(gridElement);
 grid.randomEmptyCell().tile = new Tile(gridElement);

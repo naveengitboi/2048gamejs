@@ -1,10 +1,14 @@
-const GRID_SIZE = 4;
-const CELL_SIZE = 20;
-const CELL_GAP = 2;
+import { GRID_SIZE } from "./app.js";
+import { CELL_SIZE } from "./app.js";
+import { CELL_GAP } from "./app.js";
+
+
+
 
 export default class Grid {
   #cellItems;
   constructor(gridElement) {
+    console.log(GRID_SIZE)
     gridElement.style.setProperty("--grid_size", GRID_SIZE);
     gridElement.style.setProperty("--cell_size", `${CELL_SIZE}vmin`);
     gridElement.style.setProperty("--cell_gap", `${CELL_GAP}vmin`);

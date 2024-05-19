@@ -3,16 +3,42 @@
     padding: 0;
     box-sizing: border-box;
 }
+.navbar
+{
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 10vh;
+    align-items: center;
+    z-index: 5000;
+}
 
-body
+.navbar p
+{
+    font-size: 3vmin;
+}
+
+.controllers select
+{
+    padding:0.85rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.controllers select option
+{
+    padding: 0.5rem 1rem;
+}
+
+.gameDisplay
 {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw;
-
+    position: relative;
 }
+
 
 #gameGrid
 {
@@ -44,11 +70,12 @@ body
     background-color:hsl(120, 50%, var(--tile_bg)) ;
     color:hsl(30, 8%, var(--tile_color)) ;
     border-radius: 1vmin;
+    
     display: flex;
     justify-content: center;
     align-items: center;
     left: calc(var(--x)*(var(--cell_size) + var(--cell_gap)) + var(--cell_gap));
-    top: calc(var(--y)*(var(--cell_size) + var(--cell_gap)) + var(--cell_gap));
+    top: calc(var(--y)*(var(--cell_size) + var(--cell_gap)) +  var(--cell_gap));
 
     animation: show 200ms ease-in-out;
     transition: 100ms ease-in-out;
@@ -60,3 +87,5 @@ body
         transform: scale(0);
     }
 }
+
+
