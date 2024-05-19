@@ -38,7 +38,6 @@ body
 {
    --x: 1;
    --y : 0;
-    --tile_color: 43%;
     position: absolute;
     width: var(--cell_size);
     height: var(--cell_size);

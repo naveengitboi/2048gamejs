@@ -6,8 +6,8 @@ export default class Tile {
   constructor(gridElement, value = Math.random() > 0.5 ? 2 : 4) {
     this.#tileElement = document.createElement("div");
     this.#tileElement.classList.add("tile");
-    this.value = value;
     gridElement.append(this.#tileElement);
+    this.value = value;
   }
 
   get value() {
@@ -19,10 +19,14 @@ export default class Tile {
     this.#tileElement.textContent = val;
 
     const power = Math.log2(val);
-    const bgColor = 100 - power * 10;
+    const bgColor = 100 - power*5 ;
     this.#tileElement.style.setProperty(
       "--tile_bg",
-      `${bgColor > 50 ? 80 : 90}%`
+      `${bgColor}%`
+    );
+    this.#tileElement.style.setProperty(
+      "--tile_color",
+      `${100 - bgColor}%`
     );
   }
 
@@ -40,9 +44,9 @@ export default class Tile {
     this.#tileElement.remove();
   }
 
-  waitForTransition() {
+  waitForTransition(animation = false) {
     return new Promise((resolve) => {
-      this.#tileElement.addEventListener("transitionend", resolve, {
+      this.#tileElement.addEventListener(animation ? "animationend" : "transitionend", resolve, {
         once: true,
       });
     });

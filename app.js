@@ -36,7 +36,9 @@ async function handleInput(event) {
 
     grid.cells.forEach(cell => cell.mergeTiles())
 
-    const newTile = new Tile(gridElement );
+    const newTile = new Tile(gridElement);
+    console.log(newTile)
+    
     grid.randomEmptyCell().tile = newTile;
 
     if(!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()){
